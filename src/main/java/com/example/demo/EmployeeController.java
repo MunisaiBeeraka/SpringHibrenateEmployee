@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,5 +16,10 @@ public class EmployeeController {
 	@GetMapping("/employee/{id}")
 	public Employee getEmployeeById(@PathVariable("id") int id) {
 		return employeeService.findEmployeeById(id);
+	}
+	
+	@GetMapping("/employees")
+	public List<Employee> fetchemployeeDetails() {
+		return employeeService.findAllEmployees();
 	}
 }
